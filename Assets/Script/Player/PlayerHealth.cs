@@ -6,17 +6,25 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
 
-	public int health = 100;
+	public int currentHealth;
 
-	public GameObject deathEffect;
+	public HealthBar healthBar;
+
+	public int maxHealth = 100;
+
+	public void Start() {
+		currentHealth = maxHealth;
+		healthBar.SetMaxHealth(maxHealth);
+	}
 
 	public void TakeDamage(int damage)
 	{
-		health -= damage;
-
+		currentHealth -= damage;
 		StartCoroutine(DamageAnimation());
 
-		if (health <= 0)
+		healthBar.SetHealth(currentHealth);
+
+		if (currentHealth <= 0)
 		{
 			Die();
 		}
