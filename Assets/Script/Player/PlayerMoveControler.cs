@@ -24,15 +24,6 @@ public class PlayerMoveControler  : MonoBehaviour {
 			jump = true;
 			animator.SetBool("IsJumping",true);
 		}
-
-		if (Input.GetButtonDown("Crouch"))
-		{
-			crouch = true;
-		} else if (Input.GetButtonUp("Crouch"))
-		{
-			crouch = false;
-		}
-
 	}
 
 	public void OnLanding () {
